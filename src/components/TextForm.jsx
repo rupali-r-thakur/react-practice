@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 function TextForm(props) {
-  const [textValue, setTextValue] = useState("Enter our Text");
+  const [textValue, setTextValue] = useState("");
+  const sentencecase = () => {};
   return (
     <>
       <h1 className="my-4">{props.heading}</h1>
@@ -25,6 +26,19 @@ function TextForm(props) {
         >
           Change To LowerCase
         </button>
+      </div>
+      <div className="container">
+        <h1>your text summary</h1>
+        <p>
+          {
+            textValue.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {textValue.length} characters
+        </p>
+        <h1>Preview</h1>
+        <p>{textValue}</p>
       </div>
     </>
   );

@@ -26,6 +26,13 @@ function TextForm(props) {
         >
           Change To LowerCase
         </button>
+
+        <button
+          className="btn btn-primary my-2 mx-2"
+          onClick={() => setTextValue("")}
+        >
+          clear text
+        </button>
       </div>
       <div className="container">
         <h1>your text summary</h1>

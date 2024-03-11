@@ -14,10 +14,16 @@ function TextForm(props) {
           value={textValue}
         ></textarea>
         <button
-          className="btn btn-primary my-2"
+          className="btn btn-primary my-2 mx-2"
           onClick={() => setTextValue(textValue.toUpperCase())}
         >
           Change To UpperCase
+        </button>
+        <button
+          className="btn btn-primary my-2 mx-2"
+          onClick={() => setTextValue(textValue.toLowerCase())}
+        >
+          Change To LowerCase
         </button>
       </div>
     </>

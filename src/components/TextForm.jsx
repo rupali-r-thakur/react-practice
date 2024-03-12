@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 function TextForm(props) {
   const [textValue, setTextValue] = useState("");
+  const copyText=()=>{
+    let text=document.getElementById("exampleFormControlTextarea1")
+    text.select()
+    navigator.clipboard.writeText(text.value)
+  }
   return (
     <>
       <h1 className="my-4">{props.heading}</h1>
@@ -32,7 +37,13 @@ function TextForm(props) {
         >
           Clear Text
         </button>
+        
         <button
+          className="btn btn-primary my-2 mx-2"
+          onClick={copyText}
+        >
+          Copy Text
+        </button><button
           className="btn btn-primary my-2 mx-2"
           onClick={() => setTextValue(textValue.split(/[ ]+/).join(" "))}
         >
@@ -47,7 +58,7 @@ function TextForm(props) {
               return element.length !== 0;
             }).length
           }{" "}
-          words and { textValue.replace(/\s/g, '').length} characters
+          words and {textValue.replace(/\s/g, "").length} characters
         </p>
         <h1>Preview</h1>
         <p>{textValue}</p>

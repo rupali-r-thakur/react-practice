@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 function TextForm(props) {
   const [textValue, setTextValue] = useState("");
-  const sentencecase = () => {};
   return (
     <>
       <h1 className="my-4">{props.heading}</h1>
@@ -31,7 +30,13 @@ function TextForm(props) {
           className="btn btn-primary my-2 mx-2"
           onClick={() => setTextValue("")}
         >
-          clear text
+          Clear Text
+        </button>
+        <button
+          className="btn btn-primary my-2 mx-2"
+          onClick={() => setTextValue(textValue.split(/[ ]+/).join(" "))}
+        >
+          Remove Extra Spaces
         </button>
       </div>
       <div className="container">
@@ -42,7 +47,7 @@ function TextForm(props) {
               return element.length !== 0;
             }).length
           }{" "}
-          words and {textValue.length} characters
+          words and { textValue.replace(/\s/g, '').length} characters
         </p>
         <h1>Preview</h1>
         <p>{textValue}</p>

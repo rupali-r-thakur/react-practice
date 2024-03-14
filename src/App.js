@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import TimeDate from "./components/TimeDate";
+import MiniProject from "./components/MiniProject";
+// import TimeDate from "./components/TimeDate";
 // import NavBar from "./components/NavBar";
 // import TextForm from "./components/TextForm";
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <div className="container">
         <TextForm heading={"Enter Your Text"} mode={mode} />
       </div> */}
-      <TimeDate />
+      {/* <TimeDate /> */}
+      <MiniProject />
     </>
   );
 }

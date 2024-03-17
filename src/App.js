@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import MiniProject from "./components/MiniProject";
+// import React, { useState } from "react";
+// import MiniProject from "./components/MiniProject";
+import Todolist from "./components/Todolist";
 // import TimeDate from "./components/TimeDate";
 // import NavBar from "./components/NavBar";
 // import TextForm from "./components/TextForm";
@@ -21,7 +22,8 @@ function App() {
         <TextForm heading={"Enter Your Text"} mode={mode} />
       </div> */}
       {/* <TimeDate /> */}
-      <MiniProject />
+      {/* <MiniProject /> */}
+      <Todolist />
     </>
   );
 }

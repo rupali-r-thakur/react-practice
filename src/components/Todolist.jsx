@@ -2,27 +2,42 @@ import React, { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
-const getLocalItems=()=>{
-  let list=localStorage.getItem('list');
-  if(list){
-    return JSON.parse(localStorage.getItem('list'));
-  }else{
-    return []
-  }
-}
+
 function Todolist() {
-  const [item, setitem] = useState("");
+  const getLocalItems = () => {
+    let list = localStorage.getItem("list");
+    if (list) {
+      return JSON.parse(localStorage.getItem("list"));
+    } else {
+      return [];
+    }
+  };
+  const [item, setItem] = useState("");
   const [items, setItems] = useState(getLocalItems());
+  const [icon, setIcon] = useState(true);
+  const [isEdititem, setIsEditItem] = useState(null);
   const inputValue = (e) => {
-    setitem(e.target.value);
+    setItem(e.target.value);
   };
   const addItem = () => {
     if (!item) {
       alert("please enter item");
+    } else if (item && !icon) {
+      setItems(
+        items.map((ele) => {
+          if (ele.id === isEdititem) {
+            return { ...ele, name: item };
+          }
+          return ele;
+        })
+      );
+      setIcon(true);
+      setIsEditItem(null);
+      setItem("");
     } else {
       const allItem = { id: new Date().getTime().toString(), name: item };
-      setItems( [...items, allItem]);
-      setitem("");
+      setItems([...items, allItem]);
+      setItem("");
     }
   };
   const deleteItem = (id) => {
@@ -32,9 +47,20 @@ function Todolist() {
     });
     setItems(updetedItem);
   };
-  useEffect(()=>{
-    localStorage.setItem('list', JSON.stringify(items))
-  },[items])
+  const editItem = (id) => {
+    // console.log(id)
+    const edit = items.find((ele) => {
+      // console.log(ele.id);
+      return id === ele.id;
+    });
+    console.log(edit);
+    setItem(edit.name);
+    setIcon(false);
+    setIsEditItem(id);
+  };
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(items));
+  }, [items]);
   return (
     <>
       <div className="container-fuild">
@@ -49,7 +75,7 @@ function Todolist() {
               onChange={inputValue}
               value={item}
             />
-            
+            {icon ? (
               <button
                 className="btn btn-primary text-light"
                 type="button"
@@ -58,6 +84,16 @@ function Todolist() {
               >
                 <IoMdAdd />
               </button>
+            ) : (
+              <button
+                className="btn btn-primary text-light"
+                type="button"
+                id="button-addon2"
+                onClick={addItem}
+              >
+                <FaEdit />
+              </button>
+            )}
           </div>{" "}
           <div className="display">
             <table className="table">
@@ -82,7 +118,7 @@ function Todolist() {
                             marginRight: "30px",
                             cursor: "pointer",
                           }}
-                          
+                          onClick={() => editItem(element.id)}
                         />{" "}
                         <MdDelete
                           style={{

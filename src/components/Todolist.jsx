@@ -1,26 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
+const getLocalItems=()=>{
+  let list=localStorage.getItem('list');
+  if(list){
+    return JSON.parse(localStorage.getItem('list'));
+  }else{
+    return []
+  }
+}
 function Todolist() {
   const [item, setitem] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(getLocalItems());
   const inputValue = (e) => {
     setitem(e.target.value);
   };
   const addItem = () => {
-    if (item !== "") {
-      setItems(() => {
-        return [...items, item];
-      });
+    if (!item) {
+      alert("please enter item");
+    } else {
+      const allItem = { id: new Date().getTime().toString(), name: item };
+      setItems( [...items, allItem]);
       setitem("");
     }
   };
   const deleteItem = (id) => {
     // console.log(id);
-    const updetedItem = items.filter((ele, ind) => {
-      return id !== ind;
+    const updetedItem = items.filter((ele) => {
+      return id !== ele.id;
     });
     setItems(updetedItem);
   };
+  useEffect(()=>{
+    localStorage.setItem('list', JSON.stringify(items))
+  },[items])
   return (
     <>
       <div className="container-fuild">
@@ -35,14 +49,15 @@ function Todolist() {
               onChange={inputValue}
               value={item}
             />
-            <button
-              className="btn btn-primary text-light"
-              type="button"
-              id="button-addon2"
-              onClick={addItem}
-            >
-              ADD
-            </button>
+            
+              <button
+                className="btn btn-primary text-light"
+                type="button"
+                id="button-addon2"
+                onClick={addItem}
+              >
+                <IoMdAdd />
+              </button>
           </div>{" "}
           <div className="display">
             <table className="table">
@@ -56,17 +71,26 @@ function Todolist() {
               <tbody>
                 {items.map((element, index) => {
                   return (
-                    <tr key={index}>
+                    <tr key={element.id}>
                       <th scope="row">{index + 1}</th>
-                      <td>{element} </td>
+                      <td>{element.name} </td>
                       <td>
+                        <FaEdit
+                          style={{
+                            color: "blue",
+                            fontSize: "30px",
+                            marginRight: "30px",
+                            cursor: "pointer",
+                          }}
+                          
+                        />{" "}
                         <MdDelete
                           style={{
                             color: "red",
                             fontSize: "35px",
                             cursor: "pointer",
                           }}
-                          onClick={() => deleteItem(index)}
+                          onClick={() => deleteItem(element.id)}
                         />
                       </td>
                     </tr>

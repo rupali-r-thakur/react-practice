@@ -2,9 +2,10 @@ import React from "react";
 
 function NewsItem(props) {
   return (
-    <div class="card" style={{ width: "18rem" }}>
+    <div className="card" style={{ width: "18rem" }}>
       <img
-        class="card-img-top"
+      height={150}
+        className="card-img-top"
         src={
           props.imageUrl
             ? props.imageUrl
@@ -12,10 +13,10 @@ function NewsItem(props) {
         }
         alt="Card image cap"
       />
-      <div class="card-body">
-        <h5 class="card-title">{props.title}</h5>
-        <p class="card-text">{props.description}</p>
-        <a href={props.newsUrl} target="_blank" class="btn btn-primary">
+      <div className="card-body">
+        <h5 className="card-title">{props.title}...</h5>
+        <p className="card-text">{props.description}...</p>
+        <a href={props.newsUrl} target="_blank" className="btn btn-primary">
           Read More
         </a>
       </div>

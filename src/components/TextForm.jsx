@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 function TextForm(props) {
   const [textValue, setTextValue] = useState("");
   const copyText = () => {
@@ -82,5 +81,4 @@ function TextForm(props) {
     </>
   );
 }
-
 export default TextForm;

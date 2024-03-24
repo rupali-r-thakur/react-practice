@@ -1,5 +1,4 @@
 import React from "react";
-
 function TimeDate() {
   let date = new Date().toLocaleDateString();
   let time = new Date().toLocaleTimeString();
@@ -15,5 +14,4 @@ function TimeDate() {
     </>
   );
 }
-
 export default TimeDate;

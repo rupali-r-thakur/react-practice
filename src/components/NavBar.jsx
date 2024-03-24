@@ -1,5 +1,4 @@
 import React from "react";
-
 function NavBar(props) {
   return (
     <>
@@ -58,5 +57,4 @@ function NavBar(props) {
     </>
   );
 }
-
 export default NavBar;

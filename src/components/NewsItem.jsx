@@ -1,5 +1,4 @@
 import React from "react";
-
 function NewsItem(props) {
   return (
     <div className="card" style={{ width: "18rem" }}>
@@ -23,5 +22,4 @@ function NewsItem(props) {
     </div>
   );
 }
-
 export default NewsItem;

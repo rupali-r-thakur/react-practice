@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.weather_main_div_container {
+  /* background-color: green; */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.weather_box {
+  background-color: rgb(65, 50, 173);
+  height: 80%;
+  width: 30%;
+  display: grid;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+.input_container {
+  /* background-color: orange; */
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+.input input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid rgb(60, 58, 58);
+}
+.name {
+  /* background-color: red; */
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.time h3 {
+  color: white;
+}
+.cityName {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cityName h3 {
+  color: white;
+}
+.celsias {
+  /* background-color: yellow; */
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.icon {
+  /* background-color: chartreuse; */
+  text-align: center;
+}
+.icon img {
+  /* font-size: 90%;
+    background-color: red; */
+  height: 100%;
+}
+.tempreture {
+  /* background-color: chocolate; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.tempreture h2 {
+  color: white;
+  font-size: 50px;
+}
+.degree {
+  top: -30px;
+}
+.result {
+  /* background-color: pink; */
+}
+span {
+  color: white;
+}

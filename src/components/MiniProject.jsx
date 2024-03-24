@@ -1,5 +1,4 @@
 import React from "react";
-
 function MiniProject() {
   let time = new Date();
   let currTime = time.getHours();
@@ -19,7 +18,6 @@ function MiniProject() {
   } else {
     greeting = "Good Night";
   }
-
   return (
     <div className="main_div">
       <h1>
@@ -28,5 +26,4 @@ function MiniProject() {
     </div>
   );
 }
-
 export default MiniProject;

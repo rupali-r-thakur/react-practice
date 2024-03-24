@@ -3,6 +3,7 @@
 // import Todolist from "./components/Todolist";
 import News from "./components/News";
 import Newseapp from "./components/Newseapp";
+import Weather from "./components/Weather";
 // import TimeDate from "./components/TimeDate";
 // import NavBar from "./components/NavBar";
 // import TextForm from "./components/TextForm";
@@ -26,11 +27,11 @@ function App() {
       {/* <TimeDate /> */}
       {/* <MiniProject /> */}
       {/* <Todolist /> */}
-      <Newseapp />
-      <News />
+      {/* <Newseapp />
+      <News /> */}
+      <Weather />
 
     </>
   );
 }
-
 export default App;

@@ -7,5 +7,4 @@ function Spiner() {
     </div>
   )
 }
-
 export default Spiner
